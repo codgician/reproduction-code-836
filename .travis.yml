@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "node"
+    
+dist: trusty
+
+services:
+  - mysql
+
+before_install:
+  # Create database.
+  - mysql -u root -e 'CREATE DATABASE test;'
+
+before_script:
+  # Install dependencies.
+  - yarn install
+
+script:
+  # Run.
+  - yarn run start
